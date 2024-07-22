@@ -1,0 +1,13 @@
+<!-- templates/scheduler/well_list.html -->
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Wells for Ranch: {{ ranch.name }}</h1>
+<a href="{% url 'create_well' ranch.id %}" class="btn btn-primary">Add Well</a>
+<ul>
+    {% for well in wells %}
+    <li>{{ well.name }} - {{ well.gpm }} GPM</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'ranch_detail' ranch.id %}" class="btn btn-secondary">Back to Ranch</a>
+{% endblock %}

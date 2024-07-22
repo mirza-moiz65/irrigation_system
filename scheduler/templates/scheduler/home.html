@@ -1,0 +1,12 @@
+<!-- templates/scheduler/home.html -->
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Ranches</h1>
+<ul>
+    {% for ranch in ranches %}
+    <li><a href="{% url 'ranch_detail' ranch.id %}">{{ ranch.name }}</a></li>
+    {% endfor %}
+</ul>
+<a href="{% url 'create_ranch' %}" class="btn btn-primary">Create Ranch</a>
+{% endblock %}

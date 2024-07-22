@@ -1,0 +1,33 @@
+<!-- templates/scheduler/ranch_allocation_status.html -->
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Water Allocation Status for {{ ranch.name }}</h1>
+<p>Allocation: {{ ranch.allocation }} Acre-Feet</p>
+<h2>Water Usage</h2>
+<p>Total Gallons Used: {{ total_gallons }}</p>
+<p>Total Acre-Feet Used: {{ total_acre_feet }}</p>
+<p>Allocation Remaining: {{ allocation_remaining }}</p>
+
+<h2>Meter Readings</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Well</th>
+            <th>Gallons</th>
+            <th>Acre-Feet</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for reading in readings %}
+        <tr>
+            <td>{{ reading.date }}</td>
+            <td>{% if reading.well %}{{ reading.well.name }}{% else %}N/A{% endif %}</td>
+            <td>{{ reading.gallons }}</td>
+            <td>{{ reading.acre_feet }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

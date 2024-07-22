@@ -1,0 +1,47 @@
+<!-- templates/scheduler/create_irrigation_schedule.html -->
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Create Irrigation Schedule for Ranch: {{ ranch.name }}</h1>
+<form method="post">
+    {% csrf_token %}
+    <div>
+        <label for="blocks">Select Blocks:</label>
+        {{ schedule_form.blocks }}
+    </div>
+    {{ schedule_form.non_field_errors }}
+    <div>
+        <label for="id_minutes_needed">Minutes Needed (optional):</label>
+        {{ schedule_form.minutes_needed }}
+    </div>
+    <div>
+        <label for="id_inches_needed">Inches Needed (optional):</label>
+        {{ schedule_form.inches_needed }}
+    </div>
+    <div>
+        <label for="id_leaching_factor">Leaching Factor:</label>
+        {{ schedule_form.leaching_factor }}
+    </div>
+    <div>
+        <label for="id_fertilized">Fertilized:</label>
+        {{ schedule_form.fertilized }}
+    </div>
+    <div>
+        <label for="id_fertilization_details">Fertilization Details:</label>
+        {{ schedule_form.fertilization_details }}
+    </div>
+    <div>
+        <label for="id_well">Well:</label>
+        {{ schedule_form.well }}
+    </div>
+    <div>
+        <label for="id_reference_evapotranspiration">Reference Evapotranspiration:</label>
+        {{ schedule_form.reference_evapotranspiration }}
+    </div>
+    <div>
+        <label for="id_distribution_uniformity">Distribution Uniformity:</label>
+        {{ schedule_form.distribution_uniformity }}
+    </div>
+    <button type="submit" class="btn btn-primary">Create Schedule</button>
+</form>
+{% endblock %}

@@ -1,0 +1,11 @@
+<!-- templates/scheduler/create_ranch.html -->
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Create Ranch</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ ranch_form.as_p }}
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+{% endblock %}

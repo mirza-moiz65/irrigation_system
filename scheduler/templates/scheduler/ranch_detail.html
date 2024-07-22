@@ -1,0 +1,43 @@
+<!-- templates/scheduler/ranch_detail.html -->
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>{{ ranch.name }}</h1>
+<p>Allocation: {{ ranch.allocation }} Acre-Feet</p>
+
+<section id="blocks">
+    <h2>Blocks</h2>
+    <ul>
+        {% for block in blocks %}
+        <li>
+            {{ block.name }} - {{ block.variety }} - {{ block.acreage }} Acres - {{ block.gpm }} GPM
+            <a href="{% url 'block_history' block.id %}" class="btn btn-info btn-sm">View History</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'create_block' ranch.id %}" class="btn btn-primary">Add Block</a>
+    <a href="{% url 'create_irrigation_set' ranch.id %}" class="btn btn-primary">Add Irrigation Set</a>
+</section>
+
+<section id="wells" style="margin-top: 20px;">
+    <h2>Wells</h2>
+    <a href="{% url 'well_list' ranch.id %}" class="btn btn-primary">Manage Wells</a>
+</section>
+
+<section id="meter-readings" style="margin-top: 20px;">
+    <h2>Water Meter Readings</h2>
+    <a href="{% url 'create_water_meter_reading' %}" class="btn btn-primary">Enter Water Meter Reading</a>
+    <a href="{% url 'ranch_allocation_status' ranch.id %}" class="btn btn-info">View Allocation Status</a>
+</section>
+
+<section id="irrigation-schedule" style="margin-top: 20px;">
+    <h2>Irrigation Schedule</h2>
+    <a href="{% url 'create_irrigation_schedule' ranch.id %}" class="btn btn-primary">Create Irrigation Schedule</a>
+</section>
+
+<section id="report" style="margin-top: 20px;">
+    <h2>Report</h2>
+    <a href="{% url 'ranch_report' ranch.id %}" class="btn btn-primary">View Report</a>
+</section>
+
+{% endblock %}

@@ -1,0 +1,11 @@
+<!-- templates/scheduler/create_well.html -->
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Create Well for Ranch: {{ form.initial.ranch }}</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Create Well</button>
+</form>
+{% endblock %}

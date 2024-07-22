@@ -1,0 +1,11 @@
+<!-- templates/scheduler/create_irrigation_set.html -->
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Create Irrigation Set for Ranch: {{ ranch.name }}</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ set_form.as_p }}
+    <button type="submit" class="btn btn-primary">Create Set</button>
+</form>
+{% endblock %}

@@ -1,0 +1,11 @@
+<!-- templates/scheduler/create_water_meter_reading.html -->
+{% extends "base_generic.html" %}
+
+{% block content %}
+<h1>Enter Water Meter Reading</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Submit Reading</button>
+</form>
+{% endblock %}
